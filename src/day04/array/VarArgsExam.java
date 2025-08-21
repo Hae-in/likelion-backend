@@ -1,4 +1,4 @@
-package day04;
+package day04.array;
 
 public class VarArgsExam {
     // 객체 - 속성(값, 필드), 행위(기능, 메소드)

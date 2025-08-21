@@ -1,4 +1,4 @@
-package day04;
+package day04.array;
 
 public class ScoreTableExam {
     public static void main(String[] args) {
