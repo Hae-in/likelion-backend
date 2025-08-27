@@ -34,13 +34,8 @@ public class VehicleTest {
         motorcycle.start();
         motorcycle.stop();
 
-        // polymorphism : 동일한 부모 타입 배열레 서로 다른 자식 타입을 담아 일괄 처리
-        Vehicle[] garage = new Vehicle[]{
-                car,
-                motorcycle,
-                new Car("테슬라", "Model 3", 2024, 4),
-                new Motorcycle("Yamaha", "MT-07", 2021, "Naked")
-        };
+        // polymorphism : 동일한 부모 타입 배열에 서로 다른 자식 타입을 담아 일괄 처리
+        Vehicle[] garage = new Vehicle[]{car, motorcycle, new Car("테슬라", "Model 3", 2024, 4), new Motorcycle("Yamaha", "MT-07", 2021, "Naked")};
 
         for (Vehicle v : garage) {
             // 동적 바인딩으로 각 타입의 오버라이딩 메서드 실행
