@@ -1,4 +1,4 @@
-package 과제.hw1;
+package assignment.hw1;
 
 import java.util.Arrays;
 import java.util.Scanner;
