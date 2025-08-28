@@ -1,4 +1,4 @@
-package hw1;
+package 과제.hw1;
 
 import java.time.LocalDate;
 import java.util.Arrays;

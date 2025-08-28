@@ -1,4 +1,4 @@
-package hw1;
+package 과제.hw1;
 
 public class Homework04 {
     public static void main(String[] args) {
