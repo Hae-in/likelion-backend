@@ -26,11 +26,14 @@
 ```
 assignment/
 ├── hw2/
-│   └── problem01/
-│       ├── Student.java
-│       └── StudentTest.java
+│   ├── problem01/
+│   │   ├── Student.java
+│   │   └── StudentTest.java
+│   └── problem02/
+│       ├── BankAccount.java
+│       └── BankAccountTest.java
 │
-├── hw2_객체설계연습   
+├── hw2_객체설계연습.md
 └── readme_0827.md
 ```
 
