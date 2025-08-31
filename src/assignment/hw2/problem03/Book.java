@@ -3,7 +3,7 @@ package assignment.hw2.problem03;
 public class Book {
     private String title;
     private String author;
-    private final String isbn;
+    private String isbn;
     private boolean isBorrowed;
 
     public Book(String title, String author, String isbn) {

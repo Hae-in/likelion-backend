@@ -1,7 +1,7 @@
 package assignment.hw2.problem03;
 
 public class Library {
-    private final Book[] books = new Book[100];
+    private Book[] books = new Book[100];
     private int numberOfBooks = 0;
 
     public Library() {}
