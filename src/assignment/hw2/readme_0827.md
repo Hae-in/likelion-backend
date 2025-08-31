@@ -29,9 +29,13 @@ assignment/
 │   ├── problem01/
 │   │   ├── Student.java
 │   │   └── StudentTest.java
-│   └── problem02/
-│       ├── BankAccount.java
-│       └── BankAccountTest.java
+│   ├── problem02/
+│   │   ├── BankAccount.java
+│   │   └── BankAccountTest.java
+│   └── problem03/
+│       ├── Book.java
+│       ├── Library.java
+│       └── LibraryTest.java│
 │
 ├── hw2_객체설계연습.md
 └── readme_0827.md
@@ -63,12 +67,15 @@ assignment/
 
 ### 문제 3: 도서관 관리 시스템
 
-- **패키지**:
-- **파일**:
-- **상태**: ❌ 미완료
-- **실행 방법**:
-- **핵심 개념**:
+- **패키지**: `problem03`
+- **파일**: `Book.java`, `Library.java`, `LibraryTest.java`
+- **상태**: ✅ 완료
+- **실행 방법**: IDE에서 직접 실행
+- **핵심 개념**: 캡슐화, 배열, 상태관리
 - **배운 점**:
+    - 배열로 도서 추가, 검색, 출력하는 방법
+    - 도서 대출 가능 여부에 따라 동작을 다르게 구현하는 방법
+    - 클래스별 역할을 분리하는 방법
 
 ### 문제 4: 자동차 관리 시스템 (종합 문제)
 
@@ -83,9 +90,9 @@ assignment/
 
 ## 전체 완료 현황
 
-- **완료**: 2문제 (55%) ✅
+- **완료**: 3문제 (75%) ✅
 - **부분 완료**: - (0%) ⚠️
-- **미완료**: 2문제 (50%) ❌
+- **미완료**: 1문제 (25%) ❌
 
 ---
 
