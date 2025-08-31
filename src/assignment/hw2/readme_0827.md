@@ -39,7 +39,7 @@ assignment/
 ### 문제 1: 학생 정보 관리 시스템
 
 - **패키지**: `problem01`
-- **파일**: `Student.java`
+- **파일**: `Student.java`, `StudentTest.java`
 - **상태**: ✅ 완료
 - **실행 방법**: IDE에서 직접 실행
 - **핵심 개념**: 생성자 오버로딩, 캡슐화, 예외처리, 메서드 분리, toString() 오버라이드
