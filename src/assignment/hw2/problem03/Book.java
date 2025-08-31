@@ -1,16 +1,32 @@
 package assignment.hw2.problem03;
 
 public class Book {
-    String title;
-    String author;
-    String isbn;
-    boolean isBorrowed;
+    private String title;
+    private String author;
+    private final String isbn;
+    private boolean isBorrowed;
 
     public Book(String title, String author, String isbn) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.isBorrowed = false; // 대출 가능으로 초기화
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public boolean isBorrowed() {
+        return isBorrowed;
     }
 
     // 도서 대출 (가능한 경우만)

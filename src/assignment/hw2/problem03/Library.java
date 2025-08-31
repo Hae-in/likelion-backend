@@ -1,8 +1,8 @@
 package assignment.hw2.problem03;
 
 public class Library {
-    Book[] books = new Book[100];
-    int numberOfBooks = 0;
+    private final Book[] books = new Book[100];
+    private int numberOfBooks = 0;
 
     public Library() {}
 
@@ -10,13 +10,13 @@ public class Library {
     public void addBook(Book book) {
         books[numberOfBooks] = book;
         numberOfBooks++;
-        System.out.println("📕 '" + book.title + "' 이 도서관에 추가되었습니다.");
+        System.out.println("📕 '" + book.getTitle() + "' 이 도서관에 추가되었습니다.");
     }
 
     // 제목으로 도서 검색
     public Book findBookByTitle(String title) {
         for(int i = 0; i < numberOfBooks; i++) {
-            if(books[i].title.equals(title)) {
+            if(books[i].getTitle().equals(title)) {
                 return books[i];
             }
         }
@@ -49,8 +49,8 @@ public class Library {
         System.out.println("=== 대출 가능한 도서 목록 ===");
         boolean found = false;
         for (int i = 0; i < numberOfBooks; i++) {
-            if (!books[i].isBorrowed) {
-                System.out.println("📘 " + books[i].title);
+            if (!books[i].isBorrowed()) {
+                System.out.println("📘 " + books[i].getTitle());
                 found = true;
             }
         }
