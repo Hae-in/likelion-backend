@@ -42,6 +42,7 @@ public abstract class Account {
             System.out.println("입금 실패: " + e.getMessage());
         }
         balance = balance + amount;
+        System.out.println(amount + "원이 입금 되었습니다.");
     }
 
     // 출금 - 계좌 자체의 잔액 변화 처리
@@ -57,6 +58,7 @@ public abstract class Account {
                 return;
             }
             balance = balance - amount;
+            System.out.println(amount + "원이 출금 되었습니다.");
         } catch (IllegalArgumentException e) {
             System.out.println("출금 실패: " + e.getMessage());
         }

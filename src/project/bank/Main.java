@@ -12,7 +12,8 @@ public class Main {
             System.out.println("1. 고객 등록       2. 계좌 개설");
             System.out.println("3. 입금           4. 출금");
             System.out.println("5. 계좌 조회       6. 전체 고객 조회");
-            System.out.println("7. 송금           8. 종료");
+            System.out.println("7. 송금           8. 계좌 삭제");
+            System.out.println("9. 종료");
             System.out.print("메뉴를 선택하세요: ");
 
             String input = scanner.nextLine();
@@ -66,6 +67,11 @@ public class Main {
                     bank.transfer(fromAccNum, toAccNum, transferAmount);
                     break;
                 case 8:
+                    System.out.print("삭제할 계좌번호: ");
+                    String deleteAccNum = scanner.nextLine();
+                    bank.deleteAccount(deleteAccNum);
+                    break;
+                case 9:
                     System.out.println("프로그램을 종료합니다.");
                     scanner.close();
                     return;

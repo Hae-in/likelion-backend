@@ -152,7 +152,7 @@ public class Bank {
             from.withdraw(amount); //출금
             to.deposit(amount); //입금
             System.out.println("송금 완료: " + fromAccountNumber + " → " + toAccountNumber + ", 금액: " + amount);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) { // 사용자가 잘못된 값(음수, 0, 잔액 부족 등)을 입력했을 때
             System.out.println("송금 실패: " + e.getMessage());
         }
     }
