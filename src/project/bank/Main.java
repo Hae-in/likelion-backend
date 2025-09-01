@@ -7,6 +7,13 @@ public class Main {
     static Bank bank = new Bank();
 
     public static void main(String[] args) {
+
+        bank.addCustomer("이해인");
+        bank.addCustomer("김지영");
+        bank.createAccount(1);
+        bank.createAccount(1);
+        bank.createAccount(2);
+
         while (true) {
             System.out.println("\n===== 🏦 은행 관리 시스템 =====");
             System.out.println("1. 고객 등록       2. 계좌 개설");
