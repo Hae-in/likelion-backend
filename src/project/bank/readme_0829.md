@@ -8,6 +8,8 @@
   * GitHub: [likelion-backend-2025
   homework-Hae-in](https://github.com/likelion-backend-2025/homework-Hae-in)
 
+---
+
 ### 1. 프로젝트 개요
 
 **목표**: 
@@ -20,6 +22,7 @@
 * Java (JDK 21)
 * IDE (IntelliJ)
 
+---
 
 ### 2. 구현할 기능
 
@@ -38,12 +41,14 @@
 * `추상 클래스 Account` → `CheckingAccount`(입출금), `SavingsAccount`(예금) 등 하위 클래스
 * `인터페이스 Transferable`(선택) → `transfer(from, to, amount)` 다형성
 
+---
 
 ### 3. 클래스 설계
 
 이 프로젝트는 4개의 주요 클래스로 구성됩니다.
 
 ---
+
 
 #### 3-1. `Customer` 클래스
 
