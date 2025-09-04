@@ -28,6 +28,21 @@ public class PrimitiveCastExam {
         byte b2 = (byte) 128;
         System.out.println(b2); // 오버플로우, -128
 
+        char ca = 'A';
+        char cb = 'B';
+        int result = ca + cb;
+        System.out.println("result = " + result);
 
+        int caa = (int) ca;
+        System.out.println("caa = " + caa);
+        int cbb = (int) cb;
+        System.out.println("cbb = " + cbb);
+
+        int x = 5;
+        int y = 2;
+        int d1 = x / y;
+        double d2 = (double) x / y;
+        System.out.println("d1 = " + d1);
+        System.out.println("d2 = " + d2);
     }
 }
