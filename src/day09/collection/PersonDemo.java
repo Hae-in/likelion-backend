@@ -5,7 +5,7 @@ import java.util.*;
 public class PersonDemo {
     public static void main(String[] args) {
         // Person을 여러명 저장하고 싶다.
-        // 1. Person 객체 5개 생서
+        // 1. Person 객체 5개 생성
         Person person1 = new Person("John", "1", "John@doe.com", "123-4567-8910");
         Person person2 = new Person("Kim", "2", "Kim@doe.com", "010-1234-5678");
         Person person3 = new Person("Lee", "3", "Lee@doe.com", "010-5341-6424");
