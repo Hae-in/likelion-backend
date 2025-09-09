@@ -1,5 +1,6 @@
 package project.bank;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -261,5 +262,30 @@ public class BankSystem {
         String accountId = scanner.nextLine();
 
         deleteAccount(accountId);
+    }
+
+    public void saveDataToFile() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("bank_data.txt"));) {
+            oos.writeObject(accounts);
+            System.out.println("데이터 저장 완료");
+        } catch (FileNotFoundException e) {
+            System.out.println("파일을 찾을 수 없습니다.: " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("데이터 저장 중 오류 발생: " + e.getMessage());
+        }
+    }
+
+    public void loadDataFromFile() {
+        File file = new File("bank_data.txt");
+        if (file.exists()) {
+            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));) {
+                accounts = (List<Account>) ois.readObject();
+                System.out.println("데이터 불러오기 완료");
+            } catch (IOException | ClassNotFoundException e) {
+                System.out.println("데이터 불로오기 중 오류 발생: " + e.getMessage());
+            }
+        } else {
+            System.out.println("저장된 데이터 파일이 없습니다.");
+        }
     }
 }
