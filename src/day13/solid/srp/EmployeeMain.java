@@ -1,4 +1,4 @@
-package day13.srp;
+package day13.solid.srp;
 
 class Employee {
     private String name;

@@ -1,4 +1,4 @@
-package day13.ocp;
+package day13.solid.ocp;
 
 interface Payment {
     void pay(double amount);
