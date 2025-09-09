@@ -2,6 +2,7 @@ package project.bank;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 // 전체 시스템 관리
 public class BankSystem {
@@ -14,7 +15,7 @@ public class BankSystem {
         this.currentUser = null;
     }
 
-    public void createAccount(String id, String name) {
+    public void createAccount(String name) {
         String accountId = generateAccountId();
         Account account = new Account(accountId, name);
         accounts.add(account);
@@ -31,7 +32,7 @@ public class BankSystem {
         }
     }
 
-    public void displayAllAccountDetails(String accountId) {
+    public void displayAccountDetails(String accountId) {
         Account foundAccount = findAccountById(accountId);
         if (foundAccount != null) {
             System.out.println("계좌번호: " + foundAccount.getId());
@@ -123,5 +124,142 @@ public class BankSystem {
 
     public boolean isUserLoggedIn() {
         return isLoggedIn && !currentUser.equals("admin");
+    }
+
+    public void displayMenu() {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("\n은행 계좌 관리 시스템");
+            System.out.println("-------------------");
+            System.out.println("1. 로그인 (관리자)");
+            System.out.println("2. 로그인 (일반 사용자)");
+            System.out.println("3. 계좌 생성");
+            System.out.println("4. 계좌 목록 보기");
+            System.out.println("5. 계좌 상세 정보 보기");
+            System.out.println("6. 입금");
+            System.out.println("7. 출금");
+            System.out.println("8. 이체");
+            System.out.println("9. 계좌 삭제");
+            System.out.println("10. 프로그램 종료");
+
+            System.out.print("선택: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    logginAdmin(scanner);
+                    break;
+                case 2:
+                    logginUser(scanner);
+                    break;
+                case 3:
+                    createAccount(scanner);
+                    break;
+                case 4:
+                    displayAllAccounts();
+                    break;
+                case 5:
+                    displayAccountDetails(scanner);
+                    break;
+                case 6:
+                    deposit(scanner);
+                    break;
+                case 7:
+                    withdraw(scanner);
+                    break;
+                case 8:
+                    transfer(scanner);
+                    break;
+                case 9:
+                    deleteAccount(scanner);
+                case 10:
+                    System.exit(0);
+                default:
+                    System.out.println("잘못된 선택입니다. 다시 시도해주세요.");
+
+            }
+        }
+    }
+
+    private void logginAdmin(Scanner scanner) {
+        System.out.print("관리자 ID: ");
+        String username = scanner.nextLine();
+        System.out.print("비밀번호: ");
+        String password = scanner.nextLine();
+
+        if (login(username, password)) {
+            currentUser = "admin";
+            System.out.println("관리자 로그인 성공");
+        } else {
+            System.out.println("로그인 실패");
+        }
+    }
+
+    private void logginUser(Scanner scanner) {
+        System.out.print("사용자 이름: ");
+        String username = scanner.nextLine();
+        System.out.print("비밀번호: ");
+        String password = scanner.nextLine();
+
+        if (login(username, password)) {
+            currentUser = username;
+            System.out.println("사용자 로그인 성공");
+        } else {
+            System.out.println("로그인 실패");
+        }
+    }
+
+    private void createAccount(Scanner scanner) {
+        System.out.print("계좌주 이름: ");
+        String name = scanner.nextLine();
+
+        createAccount(name);
+    }
+
+    private void displayAccountDetails(Scanner scanner) {
+        System.out.print("계좌번호: ");
+        String accountId = scanner.nextLine();
+
+        displayAccountDetails(accountId);
+    }
+
+    private void deposit(Scanner scanner) {
+        System.out.print("계좌번호: ");
+        String accountId = scanner.nextLine();
+        System.out.print("입금 금액: ");
+        double amount = scanner.nextDouble();
+        scanner.nextLine();
+
+        deposit(accountId, amount);
+    }
+
+    private void withdraw(Scanner scanner) {
+        System.out.print("계좌번호: ");
+        String accountId = scanner.nextLine();
+        System.out.print("출금 금액: ");
+        double amount = scanner.nextDouble();
+        scanner.nextLine();
+
+        withdraw(accountId, amount);
+    }
+
+    private void transfer(Scanner scanner) {
+        System.out.print("출금 계좌번호: ");
+        String fromAccountId = scanner.nextLine();
+        System.out.print("입금 계좌번호: ");
+        String toAccountId = scanner.nextLine();
+        System.out.print("이체 금액: ");
+        double amount = scanner.nextDouble();
+        scanner.nextLine();
+
+        transfer(fromAccountId, toAccountId, amount);
+    }
+
+    private void deleteAccount(Scanner scanner) {
+        System.out.print("삭제할 계좌번호: ");
+        String accountId = scanner.nextLine();
+
+        deleteAccount(accountId);
     }
 }
