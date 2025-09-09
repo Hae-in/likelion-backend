@@ -7,6 +7,7 @@ import java.util.List;
 public class BankSystem {
     private List<Account> accounts;
     private String currentUser;
+    private boolean isLoggedIn;
 
     public BankSystem() {
         this.accounts = new ArrayList<>();
@@ -101,5 +102,26 @@ public class BankSystem {
         } else {
             System.out.println("해당 계좌를 찾을 수 없습니다.");
         }
+    }
+
+    public boolean login(String username, String password) {
+        if (username.equals("admin") && password.equals("admin") || (username.equals(currentUser) && password.equals("12345"))) {
+            isLoggedIn = true;
+            return true;
+        }
+        return false;
+    }
+
+    public void logout() {
+        isLoggedIn = false;
+        currentUser = null;
+    }
+
+    public boolean isAdminLoggedIn() {
+        return isLoggedIn && currentUser.equals("admin");
+    }
+
+    public boolean isUserLoggedIn() {
+        return isLoggedIn && !currentUser.equals("admin");
     }
 }
