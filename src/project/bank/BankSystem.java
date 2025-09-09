@@ -31,7 +31,7 @@ public class BankSystem {
     }
 
     public void displayAllAccountDetails(String accountId) {
-        Account foundAccount = findByAccountId(accountId);
+        Account foundAccount = findAccountById(accountId);
         if (foundAccount != null) {
             System.out.println("계좌번호: " + foundAccount.getId());
             System.out.println("이름: " + foundAccount.getName());
@@ -41,7 +41,7 @@ public class BankSystem {
         }
     }
 
-    private Account findByAccountId(String accountId) {
+    private Account findAccountById(String accountId) {
         for (Account account : accounts) {
             if (account.getId().equals(accountId)) {
                 return account;
@@ -52,5 +52,54 @@ public class BankSystem {
 
     private String generateAccountId() {
         return String.valueOf(accounts.size() + 1);
+    }
+
+    public void deposit(String accountId, double amount) {
+        Account account = findAccountById(accountId);
+        if (account != null) {
+            account.setBalance(account.getBalance() + amount);
+            System.out.println("입금 완료. 현재 잔액: " + account.getBalance() + "원");
+        } else {
+            System.out.println("해당 계좌를 찾을 수 없습니다.");
+        }
+    }
+
+    public void withdraw(String accountId, double amount) {
+        Account account = findAccountById(accountId);
+        if (account != null && account.getBalance() >= amount) {
+            account.setBalance(account.getBalance() - amount);
+            System.out.println("출금 완료. 현재 잔액: " + account.getBalance() + "원");
+        } else if (account == null) {
+            System.out.println("해당 계좌를 찾을 수 없습니다.");
+        } else {
+            System.out.println("잔액이 부족합니다.");
+        }
+    }
+
+    public void transfer(String fromAccountId, String toAccountId, double amount) {
+        Account fromAccount = findAccountById(fromAccountId);
+        Account toAccount = findAccountById(toAccountId);
+
+        if (fromAccount != null && toAccount != null && fromAccount.getBalance() >= amount) {
+            fromAccount.setBalance(fromAccount.getBalance() - amount);
+            toAccount.setBalance(toAccount.getBalance() + amount);
+            System.out.println("이체 완료.");
+            System.out.println("출금 계좌 잔액: " + fromAccount.getBalance() + "원");
+            System.out.println("입금 계좌 잔액: " + toAccount.getBalance() + "원");
+        } else if (fromAccount == null || toAccount == null) {
+            System.out.println("계좌 정보를 확인해주세요.");
+        } else {
+            System.out.println("출금 계좌의 잔액이 부족합니다.");
+        }
+    }
+
+    public void deleteAccount(String accountId) {
+        Account account = findAccountById(accountId);
+        if (account != null) {
+            accounts.remove(account);
+            System.out.println("계좌 삭제 완료");
+        } else {
+            System.out.println("해당 계좌를 찾을 수 없습니다.");
+        }
     }
 }
