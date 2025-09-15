@@ -4,8 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
+// 데이터베이스에 접근하는 역할만 담당하는 객체
 public class DeptDAO {
-    public boolean insertDept(int deptno, String dname, String loc) {
+    public boolean insertDept(DeptDTO dto) {
         String url = "jdbc:mysql://localhost:3306/liondb";
         String user = "root";
         String password = "root1234";
@@ -18,9 +19,9 @@ public class DeptDAO {
              Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement ps = conn.prepareStatement(sql);
         ) {
-            ps.setInt(1, deptno);
-            ps.setString(2, dname);
-            ps.setString(3, loc);
+            ps.setInt(1, dto.getDeptno());
+            ps.setString(2, dto.getDname());
+            ps.setString(3, dto.getLoc());
 
             int resultCount = ps.executeUpdate();
 
