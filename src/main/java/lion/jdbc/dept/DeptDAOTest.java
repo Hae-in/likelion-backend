@@ -34,7 +34,9 @@ public class DeptDAOTest {
         }
 
         // 1건 조회
+        System.out.println("==========");
         DeptDTO resultDeptDTO = deptDAO.selectDeptById(10);
-        if(resultDeptDTO != null && resultDeptDTO.getDeptno() == 10) {}
+        System.out.println(resultDeptDTO);
+        System.out.println("==========");
     }
 }

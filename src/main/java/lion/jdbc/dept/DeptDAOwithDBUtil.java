@@ -168,7 +168,7 @@ public class DeptDAOwithDBUtil {
     public DeptDTO selectDeptById(int deptno) {
         String sql = "select deptno, dname, loc from dept where deptno = ?";
 
-        DeptDTO deptDTO = new DeptDTO();
+        DeptDTO deptDTO = null;
         ResultSet rs = null;
 
         try(
@@ -182,6 +182,9 @@ public class DeptDAOwithDBUtil {
             if (rs.next()) {
                 // 데이터가 없을 경우 null 리턴? 빈가방 리턴?: null 리턴!!
                 // 빈 가방 리턴 -> 가방을 뒤져봐서 빈가방인지 체크해야함, 1개 받아오는데 가방 필요 없음
+                // 가방은 if문 안에서 생성
+                deptDTO = new DeptDTO(); // 해당 데이터가 존재할때만 가방 생성 ⭐️
+
                 deptDTO.setDeptno(rs.getInt(1));
                 deptDTO.setDname(rs.getString("dname"));
                 deptDTO.setLoc(rs.getString("loc"));
