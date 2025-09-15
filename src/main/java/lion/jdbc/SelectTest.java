@@ -28,6 +28,7 @@ public class SelectTest {
             // next()를 싱행해야 첫 번째 row를 가리키는 곳으로 이동. => true/false 리턴, 다음 row로 이동
 
             // 데이터를 하나씩 꺼내옴
+            // 한 번 지나온 rs는 다시 올라가지않음
             while (rs.next()) {
                 System.out.print(rs.getInt(1) + "\t");
                 System.out.print(rs.getString("dname") + "\t");
