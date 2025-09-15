@@ -106,6 +106,27 @@ public class DeptDAOwithDBUtil {
 
         String sql = "select deptno, dname, loc from dept"; // * 보다 컬럼명으로 졍확하게 표현
 
+        // try-with-resource
+        // try(
+        //         Connection conn = DBUtil.getConnection();
+        //         PreparedStatement ps = conn.prepareStatement(sql);
+        //         ResultSet rs = ps.executeQuery();
+        // ) {
+        //      while (rs.next()) {
+        //          DeptDTO dto = new DeptDTO();
+        //
+        //          dto.setDeptno(rs.getInt("deptno"));
+        //          dto.setDname(rs.getString("dname"));
+        //          dto.setLoc(rs.getString("loc"));
+        //
+        //          deptList.add(dto);
+        //      }
+        // } catch (Exception e) {
+        //     System.out.println(e.getMessage());
+        // }
+        //
+        // return deptList;
+
         try {
             // 3. connection
             conn = DBUtil.getConnection();
@@ -126,9 +147,11 @@ public class DeptDAOwithDBUtil {
 
                 // sout 사용하지않고 List에 담음
                 DeptDTO dto = new DeptDTO(); // 반복문 안에서 선언! ⭐️, 선언문 밖에서 생성되면??  가방 여러개를 만들어야하는데 가방을 하나만 만든 꼴(값 교체)
+
                 dto.setDeptno(rs.getInt("deptno"));
                 dto.setDname(rs.getString("dname"));
                 dto.setLoc(rs.getString("loc"));
+
                 deptList.add(dto);
             }
         } catch (Exception e) {
