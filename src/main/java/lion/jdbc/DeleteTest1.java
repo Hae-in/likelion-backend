@@ -30,5 +30,8 @@ public class DeleteTest1 {
         } else {
             System.out.println("삭제 실패!");
         }
+
+        ps.close();
+        conn.close();
     }
 }
