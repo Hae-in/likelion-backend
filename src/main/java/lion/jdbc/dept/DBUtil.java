@@ -53,4 +53,14 @@ public class DBUtil {
         }
         close(conn, pstmt);
     }
+
+    public static void close(ResultSet rs) {
+        if(rs != null) {
+            try{
+                rs.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 }

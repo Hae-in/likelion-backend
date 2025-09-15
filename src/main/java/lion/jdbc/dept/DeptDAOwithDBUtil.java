@@ -164,4 +164,34 @@ public class DeptDAOwithDBUtil {
         return deptList;
     }
 
+    // 1건 조회
+    public DeptDTO selectDeptById(int deptno) {
+        String sql = "select deptno, dname, loc from dept where deptno = ?";
+
+        DeptDTO deptDTO = new DeptDTO();
+        ResultSet rs = null;
+
+        try(
+            Connection conn = DBUtil.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+        ) {
+            ps.setInt(1, deptno);
+
+            rs = ps.executeQuery();// resultSet return
+
+            if (rs.next()) {
+                // 데이터가 없을 경우 null 리턴? 빈가방 리턴?: null 리턴!!
+                // 빈 가방 리턴 -> 가방을 뒤져봐서 빈가방인지 체크해야함, 1개 받아오는데 가방 필요 없음
+                deptDTO.setDeptno(rs.getInt(1));
+                deptDTO.setDname(rs.getString("dname"));
+                deptDTO.setLoc(rs.getString("loc"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+          DBUtil.close(rs);
+        }
+
+        return deptDTO;
+    }
 }

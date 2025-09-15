@@ -1,5 +1,6 @@
 package lion.jdbc.dept;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 public class DeptDAOTest {
@@ -31,5 +32,9 @@ public class DeptDAOTest {
         for (DeptDTO deptDTO : deptList) {
             System.out.println(deptDTO);
         }
+
+        // 1건 조회
+        DeptDTO resultDeptDTO = deptDAO.selectDeptById(10);
+        if(resultDeptDTO != null && resultDeptDTO.getDeptno() == 10) {}
     }
 }
