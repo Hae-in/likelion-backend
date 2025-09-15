@@ -7,7 +7,6 @@ public class ConnectionTest {
     public static void main(String[] args) throws Exception {
        // 자바프로그램도 DBMS 입장에서 클라이언트이다.
        // 1. DB 접속해야함.  Connection -- 접속이 추상화된 객체.
-       //
        // Class.forName("com.mysql.cj.jdbc.Driver");
 
         Connection connection = null;
