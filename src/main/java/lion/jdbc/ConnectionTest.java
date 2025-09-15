@@ -21,6 +21,6 @@ public class ConnectionTest {
             System.out.println("-_-;;");
         }
 
-        connection.close();;
+        connection.close();
     }
 }
