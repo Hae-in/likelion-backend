@@ -5,6 +5,7 @@ import lion.jdbc.dept.DBUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.List;
 
 public class ProductDAOImpl implements ProductDAO {
@@ -51,7 +52,32 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public ProductDTO getProductById(int id) {
+    public ProductDTO getProductById(int id) {ProductDTO product = null;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "select * from products where id = ?";
+
+        try {
+            conn = DBUtil.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            // 실행
+            rs = ps.executeQuery();
+            if(rs.next()) {
+                product = new ProductDTO(); // 가방 생성
+                product.setId(rs.getInt("id"));
+                product.setNsme(rs.getString("name"));
+                product.setPrice(rs.getInt("price"));
+                product.setRegDate(rs.getTimestamp("reg_date").toLocalDateTime());
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            DBUtil.close(conn, ps, rs);
+        }
+
         return null;
     }
 

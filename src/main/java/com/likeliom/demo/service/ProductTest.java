@@ -9,5 +9,8 @@ public class ProductTest {
         ProductDAO productDAO = new ProductDAOImpl();
         boolean resultFlag = productDAO.insertProduct(new ProductDTO("book", 20000));
         System.out.println(resultFlag);
+
+        ProductDTO product = productDAO.getProductById(5);
+        System.out.println(product);
     }
 }
