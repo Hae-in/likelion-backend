@@ -3,10 +3,7 @@ package com.likeliom.demo.repository;
 import com.likeliom.demo.dto.ProductDTO;
 import lion.jdbc.dept.DBUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.List;
 
 public class ProductDAOImpl implements ProductDAO {
@@ -67,11 +64,7 @@ public class ProductDAOImpl implements ProductDAO {
             // 실행
             rs = ps.executeQuery();
             if(rs.next()) {
-                product = new ProductDTO(); // 가방 생성
-                product.setId(rs.getInt("id"));
-                product.setNsme(rs.getString("name"));
-                product.setPrice(rs.getInt("price"));
-                product.setRegDate(rs.getTimestamp("reg_date").toLocalDateTime());
+                product = resultSetToProductDTO(rs); // 깔끔 ⭐️
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -112,5 +105,21 @@ public class ProductDAOImpl implements ProductDAO {
         }
 
         return id;
+    }
+
+    // product.setId(rs.getInt("id")); 중복, 반복 줄이기
+    // select 할 때, ResultSet에서 값을 꺼내서 DTO에 담는 작업을 한건 조회할때도, 여러건 조회할때도 계속 사용 되고있다.
+    // 상품명으로 조회, 등등 메서드가 더 추가된다면??
+    // 접근제한자: 여기에서만 사용 - private
+    // return: ProductDTO
+    private ProductDTO resultSetToProductDTO(ResultSet rs) throws SQLException {
+        ProductDTO product = new ProductDTO(); // 가방 만들기
+
+        product.setId(rs.getInt("id"));
+        product.setNsme(rs.getString("name"));
+        product.setPrice(rs.getInt("price"));
+        product.setRegDate(rs.getTimestamp("reg_date").toLocalDateTime());
+
+        return product;
     }
 }
