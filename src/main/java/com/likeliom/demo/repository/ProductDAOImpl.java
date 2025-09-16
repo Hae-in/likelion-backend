@@ -4,6 +4,7 @@ import com.likeliom.demo.dto.ProductDTO;
 import lion.jdbc.dept.DBUtil;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDAOImpl implements ProductDAO {
@@ -46,7 +47,30 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public List<ProductDTO> getAllProducts() {
-        return List.of();
+        List<ProductDTO> products = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "select * from products";
+
+        try{
+            conn = DBUtil.getConnection();
+            ps = conn.prepareStatement(sql);
+            rs= ps.executeQuery();
+
+            while(rs.next()){
+                products.add(resultSetToProductDTO(rs));  // 깔끔 ⭐️
+            }
+
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }finally {
+            DBUtil.close(conn,ps,rs);
+        }
+
+
+
+        return products;
     }
 
     @Override
