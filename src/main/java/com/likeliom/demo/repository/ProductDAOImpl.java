@@ -6,6 +6,7 @@ import lion.jdbc.dept.DBUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.List;
 
 public class ProductDAOImpl implements ProductDAO {
@@ -83,6 +84,33 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public int insertProductAndGetId(ProductDTO product) {
-        return 0;
+        int id = 0;
+        String sql = "insert into products(name, price, reg_date) values(?,?,now())";
+
+        try(
+                // 접속
+                Connection conn = DBUtil.getConnection();
+                // 쿼리 작성
+                PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        ) {
+            ps.setString(1, product.getNsme());
+            ps.setInt(2, product.getPrice());
+
+            // 실행
+            int count = ps.executeUpdate(); // 실행 후, GeneratedKey 생성
+            if(count > 0) {
+                ResultSet rs = ps.getGeneratedKeys(); // GeneratedKey return
+                if(rs.next()) {
+                    id = rs.getInt(1);
+                }
+            } else {
+                System.out.println("상품 등록에 실패했습니다.");
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return id;
     }
 }
