@@ -118,7 +118,13 @@ public class ProductDAOImpl implements ProductDAO {
         product.setId(rs.getInt("id"));
         product.setNsme(rs.getString("name"));
         product.setPrice(rs.getInt("price"));
-        product.setRegDate(rs.getTimestamp("reg_date").toLocalDateTime());
+        // product.setRegDate(rs.getTimestamp("reg_date").toLocalDateTime());
+
+        // null 값 처리, null일 경우 null로 처리, null 아닌 경우 변환해서 출력
+        Timestamp regDate = rs.getTimestamp("reg_date");
+        if(regDate != null) {
+            product.setRegDate(regDate.toLocalDateTime());
+        }
 
         return product;
     }
