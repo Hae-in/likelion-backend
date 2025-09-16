@@ -68,8 +68,6 @@ public class ProductDAOImpl implements ProductDAO {
             DBUtil.close(conn,ps,rs);
         }
 
-
-
         return products;
     }
 
