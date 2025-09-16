@@ -79,7 +79,7 @@ public class ProductDAOImpl implements ProductDAO {
             DBUtil.close(conn, ps, rs);
         }
 
-        return null;
+        return product;
     }
 
     @Override
