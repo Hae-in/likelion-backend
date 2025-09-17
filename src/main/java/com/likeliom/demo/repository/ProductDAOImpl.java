@@ -10,7 +10,8 @@ import java.util.List;
 public class ProductDAOImpl implements ProductDAO {
 
     @Override
-    public boolean insertProduct(ProductDTO product) {boolean result = false;
+    public boolean insertProduct(ProductDTO product) {
+        boolean result = false;
 
         String sql = "insert into products(name, price, reg_date) values(?,?, now())";
 
@@ -44,7 +45,7 @@ public class ProductDAOImpl implements ProductDAO {
     public boolean deleteProduct(ProductDTO product) {
         return false;
     }
-
+    
     @Override
     public List<ProductDTO> getAllProducts() {
         List<ProductDTO> products = new ArrayList<>();
