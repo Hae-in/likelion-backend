@@ -15,19 +15,18 @@ public class ProductDAOImpl implements ProductDAO {
 
         String sql = "insert into products(name, price, reg_date) values(?,?, now())";
 
-        try(
+        try (
                 // 접속
                 Connection conn = DBUtil.getConnection();
                 // 쿼리 작성
-                PreparedStatement ps = conn.prepareStatement(sql);
-        ) {
+                PreparedStatement ps = conn.prepareStatement(sql);) {
             ps.setString(1, product.getNsme());
             ps.setInt(2, product.getPrice());
 
             // 실행
             int count = ps.executeUpdate();
 
-            if(count > 0) {
+            if (count > 0) {
                 result = true;
             }
         } catch (Exception e) {
@@ -45,7 +44,7 @@ public class ProductDAOImpl implements ProductDAO {
     public boolean deleteProduct(ProductDTO product) {
         return false;
     }
-    
+
     @Override
     public List<ProductDTO> getAllProducts() {
         List<ProductDTO> products = new ArrayList<>();
@@ -54,26 +53,27 @@ public class ProductDAOImpl implements ProductDAO {
         ResultSet rs = null;
         String sql = "select * from products";
 
-        try{
+        try {
             conn = DBUtil.getConnection();
             ps = conn.prepareStatement(sql);
-            rs= ps.executeQuery();
+            rs = ps.executeQuery();
 
-            while(rs.next()){
+            while (rs.next()) {
                 products.add(resultSetToProductDTO(rs));  // 깔끔 ⭐️
             }
 
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-        }finally {
-            DBUtil.close(conn,ps,rs);
+        } finally {
+            DBUtil.close(conn, ps, rs);
         }
 
         return products;
     }
 
     @Override
-    public ProductDTO getProductById(int id) {ProductDTO product = null;
+    public ProductDTO getProductById(int id) {
+        ProductDTO product = null;
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -86,7 +86,7 @@ public class ProductDAOImpl implements ProductDAO {
 
             // 실행
             rs = ps.executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 product = resultSetToProductDTO(rs); // 깔끔 ⭐️
             }
         } catch (Exception e) {
@@ -103,20 +103,19 @@ public class ProductDAOImpl implements ProductDAO {
         int id = 0;
         String sql = "insert into products(name, price, reg_date) values(?,?,now())";
 
-        try(
+        try (
                 // 접속
                 Connection conn = DBUtil.getConnection();
                 // 쿼리 작성
-                PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-        ) {
+                PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);) {
             ps.setString(1, product.getNsme());
             ps.setInt(2, product.getPrice());
 
             // 실행
             int count = ps.executeUpdate(); // 실행 후, GeneratedKey 생성
-            if(count > 0) {
+            if (count > 0) {
                 ResultSet rs = ps.getGeneratedKeys(); // GeneratedKey return
-                if(rs.next()) {
+                if (rs.next()) {
                     id = rs.getInt(1);
                 }
             } else {
@@ -145,7 +144,7 @@ public class ProductDAOImpl implements ProductDAO {
 
         // null 값 처리, null일 경우 null로 처리, null 아닌 경우 변환해서 출력
         Timestamp regDate = rs.getTimestamp("reg_date");
-        if(regDate != null) {
+        if (regDate != null) {
             product.setRegDate(regDate.toLocalDateTime());
         }
 
