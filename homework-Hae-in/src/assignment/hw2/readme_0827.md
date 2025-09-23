@@ -1,0 +1,114 @@
+# 멋쟁이사자처럼 백엔드 스쿨 assignment 제출
+
+## 수강생 정보
+
+- **이름**: 이해인
+- **트랙**: 백엔드 스쿨
+- **기수**: 19기
+- **제출일**: 2025-08-31
+- **GitHub**: [likelion-backend-2025
+  homework-Hae-in](https://github.com/likelion-backend-2025/homework-Hae-in)
+
+## assignment 개요
+
+이번 과제는 **Java 객체지향 기초** 개념을 활용한 문제 해결
+과제입니다. [hw2_객체설계연습.md](https://github.com/likelion-backend-2025/homework-Hae-in/blob/main/src/%EA%B3%BC%EC%A0%9C/hw2/hw2_%EA%B0%9D%EC%B2%B4%EC%84%A4%EA%B3%84%EC%97%B0%EC%8A%B5.md)
+
+## 개발 환경
+
+- **언어**: Java 21
+- **IDE**: IntelliJ IDEA
+- **빌드 도구**: IntelliJ
+- **운영체제**: macOS
+
+## 파일 구조
+
+```
+assignment/
+├── hw2/
+│   ├── problem01/
+│   │   ├── Student.java
+│   │   └── StudentTest.java
+│   ├── problem02/
+│   │   ├── BankAccount.java
+│   │   └── BankAccountTest.java
+│   └── problem03/
+│       ├── Book.java
+│       ├── Library.java
+│       └── LibraryTest.java│
+│
+├── hw2_객체설계연습.md
+└── readme_0827.md
+```
+
+## 문제별 해결 현황
+
+### 문제 1: 학생 정보 관리 시스템
+
+- **패키지**: `problem01`
+- **파일**: `Student.java`, `StudentTest.java`
+- **상태**: ✅ 완료
+- **실행 방법**: IDE에서 직접 실행
+- **핵심 개념**: 생성자 오버로딩, 캡슐화, 예외처리, 메서드 분리, toString() 오버라이드
+- **배운 점**:
+    - "잘못된 입력값 처리"는 무시하거나 초기화하는 게 아니라, 경고 + 기존 값 유지가 올바른 패턴이다.
+    - System.out.println(student1); 호출 시 객체 주소값이 아닌 정보가 나오도록 toString() 오버라이드가 필요하다.
+
+### 문제 2: 은행 계좌 시스템
+
+- **패키지**: `problem02`
+- **파일**: `BankAccount.java`, `BankAccountTest.java`
+- **상태**: ✅ 완료
+- **실행 방법**: IDE에서 직접 실행
+- **핵심 개념**: 캡슐화, 정적변수와 클래스 차원의 상태관리(static), 메서드 분리, final
+- **배운 점**:
+    - `static` 변수를 통해 개별 객체가 아닌 전체 시스템 상태를 추적할 수 있다.
+    - 객체 설계 시 불변 필드(`final`)와 가변 필드를 구분 필요하다.
+
+### 문제 3: 도서관 관리 시스템
+
+- **패키지**: `problem03`
+- **파일**: `Book.java`, `Library.java`, `LibraryTest.java`
+- **상태**: ✅ 완료
+- **실행 방법**: IDE에서 직접 실행
+- **핵심 개념**: 캡슐화, 배열, 상태관리
+- **배운 점**:
+    - 배열로 도서 추가, 검색, 출력하는 방법
+    - 도서 대출 가능 여부에 따라 동작을 다르게 구현하는 방법
+    - 클래스별 역할을 분리하는 방법
+
+### 문제 4: 자동차 관리 시스템 (종합 문제)
+
+- **패키지**:
+- **파일**:
+- **상태**: ❌ 미완료
+- **실행 방법**:
+- **핵심 개념**:
+- **배운 점**:
+
+--- 
+
+## 전체 완료 현황
+
+- **완료**: 3문제 (75%) ✅
+- **부분 완료**: - (0%) ⚠️
+- **미완료**: 1문제 (25%) ❌
+
+---
+
+**커밋 메시지 컨벤션**
+
+```
+feat: 새로운 문제 해결
+fix: 버그 수정
+docs: README 업데이트
+refactor: 코드 리팩토링
+```
+
+**제출 전 체크리스트**
+
+- [x] 모든 .java 파일이 정상적으로 컴파일되는지 확인
+- [x] 각 문제별 실행 결과 확인
+- [x] 코드 스타일 통일 (들여쓰기, 네이밍 등)
+- [x] README.md 작성 완료
+- [x] GitHub 저장소에 푸시 완료
