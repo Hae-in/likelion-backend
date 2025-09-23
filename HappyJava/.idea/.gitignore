@@ -1,0 +1,32 @@
+# 디폴트 무시된 파일
+/shelf/
+/workspace.xml
+# 에디터 기반 HTTP 클라이언트 요청
+/httpRequests/
+/codeStyles/codeStyleConfig.xml
+/dataSources/4727cd85-4a93-4a2d-b330-f7dfe1cc9be5/storage_v2/_src_/schema/information_schema.FNRwLQ.meta
+/dataSources/4727cd85-4a93-4a2d-b330-f7dfe1cc9be5/storage_v2/_src_/schema/liondb.miVHvg.meta
+/dataSources/4727cd85-4a93-4a2d-b330-f7dfe1cc9be5/storage_v2/_src_/schema/performance_schema.kIw0nw.meta
+/dataSources/d81edda1-6854-4dee-a12a-e74fb8e84ded/storage_v2/_src_/schema/hr.Cg0AAA.meta
+/dataSources/d81edda1-6854-4dee-a12a-e74fb8e84ded/storage_v2/_src_/schema/hr.Cg0AAA.zip
+/dataSources/d81edda1-6854-4dee-a12a-e74fb8e84ded/storage_v2/_src_/schema/information_schema.FNRwLQ.meta
+/dataSources/d81edda1-6854-4dee-a12a-e74fb8e84ded/storage_v2/_src_/schema/information_schema.FNRwLQ.zip
+/dataSources/d81edda1-6854-4dee-a12a-e74fb8e84ded/storage_v2/_src_/schema/liondb.miVHvg.meta
+/dataSources/d81edda1-6854-4dee-a12a-e74fb8e84ded/storage_v2/_src_/schema/mysql.osA4Bg.meta
+/dataSources/d81edda1-6854-4dee-a12a-e74fb8e84ded/storage_v2/_src_/schema/performance_schema.kIw0nw.meta
+/dataSources/d81edda1-6854-4dee-a12a-e74fb8e84ded/storage_v2/_src_/schema/sys.zb4BAA.meta
+/dataSources/d81edda1-6854-4dee-a12a-e74fb8e84ded/storage_v2/_src_/schema/sys.zb4BAA.zip
+/dataSources/f4017c78-82da-4e72-be5c-f57438403e45/storage_v2/_src_/schema/hr.Cg0AAA.meta
+/dataSources/f4017c78-82da-4e72-be5c-f57438403e45/storage_v2/_src_/schema/hr.Cg0AAA.zip
+/dataSources/f4017c78-82da-4e72-be5c-f57438403e45/storage_v2/_src_/schema/information_schema.FNRwLQ.meta
+/dataSources/f4017c78-82da-4e72-be5c-f57438403e45/storage_v2/_src_/schema/liondb.miVHvg.meta
+/dataSources/f4017c78-82da-4e72-be5c-f57438403e45/storage_v2/_src_/schema/performance_schema.kIw0nw.meta
+/dataSources/4727cd85-4a93-4a2d-b330-f7dfe1cc9be5.xml
+/dataSources/d81edda1-6854-4dee-a12a-e74fb8e84ded.xml
+/dataSources/f4017c78-82da-4e72-be5c-f57438403e45.xml
+/dictionaries/zen.xml
+/inspectionProfiles/Project_Default.xml
+/libraries/mysql_connector_j.xml
+/dataSources.local.xml
+/dataSources.xml
+/encodings.xml
