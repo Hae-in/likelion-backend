@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>실습 바로가기</title>
+    <style>
+        .accordion {
+            cursor: pointer;
+            background: #f0f0f0;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        .panel {
+            display: none;
+            padding: 5px 15px;
+        }
+        .panel a {
+            display: block;
+            padding: 3px 0;
+            text-decoration: none;
+            color: #0077cc;
+        }
+        .panel a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<h2>실습 바로가기</h2>
+
+<div class="accordion">CSS 실습바로가기</div>
+<div class="panel" id="css-list"></div>
+
+<div class="accordion">CSS스타일속성기본 바로가기</div>
+<div class="panel" id="css-style-list"></div>
+
+<div class="accordion">HTML 바로가기</div>
+<div class="panel" id="html-list">
+</div>
+
+<div class="accordion">SELECTOR 바로가기</div>
+<div class="panel" id="selector-list">
+</div>
+
+<script>
+    // 아코디언 토글
+    document.querySelectorAll(".accordion").forEach(acc => {
+        acc.addEventListener("click", () => {
+            acc.nextElementSibling.style.display =
+                acc.nextElementSibling.style.display === "block" ? "none" : "block";
+        });
+    });
+
+    // CSS 실습 (2-1 ~ 2-16)
+    const cssList = document.getElementById("css-list");
+    for (let i = 1; i <= 16; i++) {
+        let a = document.createElement("a");
+        a.href = `실습코드/CSS/2-${i}.html`;
+        a.textContent = `2-${i}.html`;
+        cssList.appendChild(a);
+    }
+
+    // CSS 스타일 속성 기본 (4-2 ~ 4-79)
+    const cssStyleList = document.getElementById("css-style-list");
+    for (let i = 2; i <= 79; i++) {
+        let a = document.createElement("a");
+        a.href = `실습코드/CSS스타일속성기본/4-${i}.html`;
+        a.textContent = `4-${i}.html`;
+        cssStyleList.appendChild(a);
+    }
+
+    // HTML (1-1 ~ 1-13)
+    const htmlList = document.getElementById("html-list");
+    for (let i = 1; i <= 13; i++) {
+        let a = document.createElement("a");
+        a.href = `실습코드/HTML/1-${i}.html`;
+        a.textContent = `1-${i}.html`;
+        htmlList.appendChild(a);
+    }
+
+    // SELECTOR (001 ~ 030)
+    const selectorList = document.getElementById("selector-list");
+    for (let i = 1; i <= 30; i++) {
+        let num = String(i).padStart(3, "0"); // 001, 002 ... 030
+        let a = document.createElement("a");
+        a.href = `실습코드/SELECTOR/${num}.html`;
+        a.textContent = `${num}.html`;
+        selectorList.appendChild(a);
+    }
+</script>
+</body>
+</html>
