@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js exam</title>
+</head>
+<body>
+    <h2>입력</h2>
+    <div id="num"></div>
+    <script>
+        let number = prompt("값을 입력하세요.")
+        console.log(number);
+
+        const numDiv = document.querySelector('#num');
+        numDiv.innerHTML = `<h3>${number}</h3>`;
+    </script>
+</body>
+</html>
