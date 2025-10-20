@@ -1,6 +1,7 @@
 package com.example.springjdbc.jdbc01;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -27,9 +28,29 @@ public class UserDaoImpl implements UserDao {
     @Override
     public List<User> findAllUsers() {
         // 2. 조회 (select)
-        String selectSql = "select * from users";
-        List<User> userList = jdbcTemplate.query(selectSql, new BeanPropertyRowMapper<>(User.class));
+        String sql = "select * from users";
+        List<User> userList = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
 
         return userList;
+    }
+
+    @Override
+    public void updateUser(User user) {
+        String sql = "update users set name = ?, email = ? where id = ?";
+        int count = jdbcTemplate.update(sql, user.getName(), user.getEmail(), user.getId());
+
+        if(count == 0) {
+            throw new DataAccessException("사용자를 찾을 수 없습니다." + user.getEmail()){};
+        }
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        String sql = "delete from users where id = ?";
+        int count = jdbcTemplate.update(sql, id);
+
+        if(count == 0) {
+            throw new DataAccessException("사용자를 찾을 수 없습니다." + id){};
+        }
     }
 }
