@@ -12,3 +12,11 @@ spring:
     web:
       pageable:
         one-indexed-parameters: true
+
+  thymeleaf:
+    cache: false
+
+  sql:
+    init:
+      mode: always
+      encoding: utf-8
