@@ -2,6 +2,8 @@ package com.example.springjdbc.friendapp.service;
 
 import com.example.springjdbc.friendapp.domain.Friend;
 import com.example.springjdbc.friendapp.repository.FriendRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -50,6 +52,12 @@ public class FriendService {
     @Transactional(readOnly = true)
     public Iterable<Friend> getFriends() {
         return friendRepository.findAll();
+    }
+
+    // 친구 목록 - 페이징 처리
+    @Transactional(readOnly = true)
+    public Page<Friend> getFriends(Pageable pageable) {
+        return friendRepository.findAll(pageable);
     }
 
     // 친구 상세페이지
