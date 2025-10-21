@@ -1,6 +1,7 @@
 package com.example.springjdbc.board.controller;
 
 import com.example.springjdbc.board.domain.Board;
+import com.example.springjdbc.board.dto.BoardResponseDto;
 import com.example.springjdbc.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequiredArgsConstructor
@@ -18,7 +21,12 @@ public class BoardController {
     // 글 목록
     @GetMapping("/list")
     public String listBoards(Model model) {
-        Iterable<Board> boards = boardService.getBoardList();
+        // Iterable<Board> boards = boardService.getBoardList();
+        List<BoardResponseDto> boards =
+                ((List<Board>) boardService.getBoardList())
+                        .stream()
+                        .map(BoardResponseDto::fromList)
+                        .collect(Collectors.toList());
         model.addAttribute("boards", boards);
         return "boards/list";
     }
@@ -38,15 +46,16 @@ public class BoardController {
 
     // 글 상세보기
     @GetMapping("/view/{id}")
-    public String detailBoard(@PathVariable("id")  long id, Model model) {
+    public String detailBoard(@PathVariable("id") long id, Model model) {
         Board board = boardService.getBoardById(id);
-        model.addAttribute("board", board);
+        BoardResponseDto boardDto = BoardResponseDto.fromDetail(board);
+        model.addAttribute("board", boardDto);
         return "boards/detail";
     }
 
     // 글 수정 폼
     @GetMapping("/update/{id}")
-    public String updateBoardForm(@PathVariable("id")  long id, Model model) {
+    public String updateBoardForm(@PathVariable("id") long id, Model model) {
         Board board = boardService.getBoardById(id);
         model.addAttribute("board", board);
         return "boards/updateform";
@@ -61,7 +70,7 @@ public class BoardController {
 
     // 글 삭제
     @GetMapping("/delete/{id}")
-    public String deleteBoard(@PathVariable("id")  long id) {
+    public String deleteBoard(@PathVariable("id") long id) {
         boardService.deleteBoardById(id);
         return "redirect:/boards/list";
     }
