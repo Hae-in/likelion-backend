@@ -1,4 +1,4 @@
-package jpa;
+package jpa.school;
 
 import jakarta.persistence.*;
 import lombok.*;

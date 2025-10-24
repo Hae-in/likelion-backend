@@ -1,6 +1,7 @@
-package jpa;
+package jpa.school;
 
 import jakarta.persistence.EntityManager;
+import jpa.JPAUtil;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

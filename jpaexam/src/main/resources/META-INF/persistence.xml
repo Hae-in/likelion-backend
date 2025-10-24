@@ -8,9 +8,9 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <class>jpa.User</class>
-        <class>jpa.Product</class>
-        <class>jpa.School</class>
-        <class>jpa.Student</class>
+        <class>jpa.product.Product</class>
+        <class>jpa.school.School</class>
+        <class>jpa.school.Student</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
