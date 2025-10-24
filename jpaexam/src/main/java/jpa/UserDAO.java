@@ -3,6 +3,7 @@ package jpa;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jpa.product.User;
 
 public class UserDAO {
     private EntityManagerFactory emf;

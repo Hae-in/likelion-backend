@@ -7,10 +7,20 @@
     <persistence-unit name="lionPU" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>jpa.User</class>
+        <class>jpa.product.User</class>
         <class>jpa.product.Product</class>
+
         <class>jpa.school.School</class>
         <class>jpa.school.Student</class>
+
+        <class>jpa.book.Book</class>
+        <class>jpa.book.Author</class>
+
+        <class>jpa.passport.Passport</class>
+        <class>jpa.passport.Person</class>
+
+        <class>jpa.employee.Project</class>
+        <class>jpa.employee.Employee</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
