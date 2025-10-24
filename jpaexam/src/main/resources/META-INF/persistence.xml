@@ -9,6 +9,8 @@
 
         <class>jpa.User</class>
         <class>jpa.Product</class>
+        <class>jpa.School</class>
+        <class>jpa.Student</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
