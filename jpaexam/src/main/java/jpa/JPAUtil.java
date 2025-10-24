@@ -6,7 +6,8 @@ import jakarta.persistence.Persistence;
 public class JPAUtil {
     // 싱글톤 인스턴스
     private static final EntityManagerFactory emfInstance =
-            Persistence.createEntityManagerFactory("UserPU");
+            // Persistence.createEntityManagerFactory("UserPU");
+            Persistence.createEntityManagerFactory("lionPU");
 
     // JVM 종료 시 emfInstance 자동 close
     static {
