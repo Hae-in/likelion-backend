@@ -1,0 +1,33 @@
+### POST
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name": "goldbb",
+  "email": "goldbb@gmail.com"
+}
+
+
+### GET /users/{id}
+GET http://localhost:8080/api/users/1
+Accept: application/json
+
+
+### GET
+GET http://localhost:8080/api/users
+Accept: application/json
+
+
+### PUT
+PUT http://localhost:8080/api/users/31
+Content-Type: application/json
+
+{
+  "name": "ldldl",
+  "email": "ldldl@gmail.com"
+}
+
+
+### DELETE
+DELETE http://localhost:8080/api/users/31
+Accept: application/json
