@@ -12,10 +12,6 @@ import java.util.List;
 @SpringBootApplication
 public class RestexamApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(RestexamApplication.class, args);
-    }
-
     @Bean
     CommandLineRunner run(UserRepository userRepository) {
         return args -> {
@@ -25,4 +21,10 @@ public class RestexamApplication {
             // }
         };
     }
+
+    public static void main(String[] args) {
+        SpringApplication.run(RestexamApplication.class, args);
+    }
+
+
 }
