@@ -50,6 +50,16 @@ public class TodoService {
         return TodoDTO.fromEntity(todo);
     }
 
+    // done 상태 변경
+    @Transactional
+    public TodoDTO updateDone(Long id) {
+        Todo todo = todoRepository.findById(id).orElseThrow(() -> new RuntimeException("Todo not found id: " + id));
+
+        todo.setDone(!todo.isDone());
+
+        return TodoDTO.fromEntity(todo);
+    }
+
     // 삭제
     @Transactional
     public void deleteTodo(Long id) {
