@@ -1,5 +1,8 @@
 package org.example.aopexam;
 
+import org.example.aopexam.exam.AnotherService;
+import org.example.aopexam.exam.SimpleService;
+import org.example.aopexam.exam.UserController;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
