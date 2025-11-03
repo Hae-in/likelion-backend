@@ -1,9 +1,9 @@
-package org.example.restexam.service;
+package org.example.todo.service;
 
 import lombok.RequiredArgsConstructor;
-import org.example.restexam.domain.Todo;
-import org.example.restexam.dto.TodoDTO;
-import org.example.restexam.repository.TodoRepository;
+import org.example.todo.domain.Todo;
+import org.example.todo.dto.TodoDTO;
+import org.example.todo.repository.TodoRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

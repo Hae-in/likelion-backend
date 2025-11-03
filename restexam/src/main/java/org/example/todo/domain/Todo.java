@@ -1,8 +1,8 @@
-package org.example.restexam.domain;
+package org.example.todo.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.example.restexam.dto.TodoDTO;
+import org.example.todo.dto.TodoDTO;
 
 @Entity
 @Getter

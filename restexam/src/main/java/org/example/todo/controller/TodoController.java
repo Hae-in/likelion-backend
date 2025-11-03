@@ -1,9 +1,9 @@
-package org.example.restexam.controller;
+package org.example.todo.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.example.restexam.dto.TodoDTO;
-import org.example.restexam.service.TodoService;
+import org.example.todo.dto.TodoDTO;
+import org.example.todo.service.TodoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,7 +34,7 @@ public class TodoController {
     }
 
     // 수정
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<TodoDTO> updateTodo(@PathVariable("id") Long id, @Valid @RequestBody TodoDTO dto) {
         dto.setId(id);
         return ResponseEntity.ok(todoService.updateTodo(dto));

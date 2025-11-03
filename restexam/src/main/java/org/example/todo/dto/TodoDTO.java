@@ -1,7 +1,7 @@
-package org.example.restexam.dto;
+package org.example.todo.dto;
 
 import lombok.*;
-import org.example.restexam.domain.Todo;
+import org.example.todo.domain.Todo;
 
 @Getter
 @Setter
