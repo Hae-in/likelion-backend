@@ -25,6 +25,9 @@ public class SecurityConfig {
                             System.out.println("로그아웃 완료...");
                         })
                 )
+                .rememberMe(rememberMe -> rememberMe
+                        .rememberMeParameter("rememberMe")
+                        .tokenValiditySeconds(60))
                 .build();
     }
 }
