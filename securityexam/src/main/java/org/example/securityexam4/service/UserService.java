@@ -26,7 +26,7 @@ public class UserService {
 
     // 회원가입
     public User registerUser(UserRegisterDTO registerDTO) {
-        // dto에서 가져온 값을 엔티티에 담기
+        // DTO에서 가져온 값을 엔티티에 담기
         User user = new User();
         user.setUsername(registerDTO.getUsername());
         user.setPassword(passwordEncoder.encode(registerDTO.getPassword()));  // 패스워드는 반드시 인코딩해서 저장

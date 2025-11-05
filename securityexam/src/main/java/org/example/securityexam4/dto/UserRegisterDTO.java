@@ -13,5 +13,5 @@ public class UserRegisterDTO {
     private String name;
     private String email;
 
-    private List<String> roles;
+    private List<String> roles; // html 
 }
