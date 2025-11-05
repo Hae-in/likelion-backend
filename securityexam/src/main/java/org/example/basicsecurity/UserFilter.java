@@ -7,7 +7,6 @@ import java.io.IOException;
 
 @Component
 public class UserFilter implements Filter {
-    @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         // Filter.super.init(filterConfig);
         System.out.println("----- UserFilter init()");

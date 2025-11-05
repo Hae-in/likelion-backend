@@ -1,0 +1,16 @@
+spring:
+  application:
+   name: securityexam
+
+  security:
+    user:
+      name: test
+      password: 1234
+
+server:
+  tomcat:
+    threads:
+#      max: 200
+#      min-spare: 10
+      max: 5
+      min-spare: 2
