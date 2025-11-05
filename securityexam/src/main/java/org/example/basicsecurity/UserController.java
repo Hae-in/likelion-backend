@@ -18,4 +18,10 @@ public class UserController {
         log.info("----- /api/hello");
         return "Hello world 2";
     }
+
+    @GetMapping("/api/test")
+    public String test() {
+        log.info("UserController test() 실행!!");
+        return "api/test";
+    }
 }
