@@ -19,6 +19,16 @@ public class SecurityConfig {
                         .requestMatchers("/user/regForm", "/user/userreg", "/user/welcome").permitAll()
                         .anyRequest().authenticated()
                 );
+        http
+                .formLogin(form -> form
+                        .loginPage("/user/loginform")
+                        .loginProcessingUrl("/login")
+                        .usernameParameter("username")
+                        .passwordParameter("password")
+                        .defaultSuccessUrl("/user/welcome")
+                        .permitAll()
+                );
+
         return http.build();
     }
 
