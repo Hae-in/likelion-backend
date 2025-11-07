@@ -15,7 +15,6 @@ import org.springframework.security.core.userdetails.User.UserBuilder;
 // security한테 UserDetails 타입의 사용자정보 보내줌
 // 인증
 
-
 @Service
 @RequiredArgsConstructor
 public class CustomUserDetailService implements UserDetailsService {
