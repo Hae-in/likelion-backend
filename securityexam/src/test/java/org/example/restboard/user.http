@@ -1,0 +1,30 @@
+### 테스트 시나리오 1: 회원 가입 (성공)
+POST /users HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "김철수",
+  "loginId": "chulsoo",
+  "password": "password123!",
+  "email": "chulsoo@example.com"
+}
+
+
+### 테스트 시나리오 2: 중복 로그인 ID로 회원 가입 시도 (실패)
+POST /users HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+"name": "이영희",
+"loginId": "chulsoo",
+"password": "pass456",
+"email": "younghee@example.com"
+}
+
+
+### 테스트 시나리오 3: 회원 삭제 (인증 필요)
+DELETE /users/3 HTTP/1.1
+Host: localhost:8080
+Authorization: Basic Y2h1bHNvbzpwYXNzd29yZDEyMyE=

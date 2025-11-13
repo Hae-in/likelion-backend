@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>welcome</title>
+</head>
+<body>
+<h1> 🎉 환영합니다 🤗</h1>
+
+<h3><div th:if="${success}" style="color:green; font-weight:bold;" th:text="${success}"></div></h3>
+<h3><div th:if="${error}" style="color:red; font-weight:bold;" th:text="${error}"></div></h3>
+
+<div sec:authorize="isAuthenticated()">
+    <p>안녕하세요 <span sec:authentication="name"></span>님!! </p>
+</div>
+
+<a th:href="@{/users/login}" sec:authorize="!isAuthenticated()">로그인</a>
+<a th:href="@{/logout}" sec:authorize="isAuthenticated()">로그아웃</a>
+<a th:href="@{/users/myinfo}" sec:authorize="isAuthenticated()">마이페이지</a>
+<a th:href="@{/user/signup}" sec:authorize="!isAuthenticated()">회원가입</a>
+<a th:href="@{/admin/dashboard}" sec:authorize="hasRole('ADMIN')">관리자페이지</a>
+
+</body>
+</html>

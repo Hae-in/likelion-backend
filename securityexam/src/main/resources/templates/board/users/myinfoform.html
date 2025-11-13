@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>MYINFO</title>
+</head>
+<body>
+
+<div sec:authorize="isAuthenticated()">
+    <p>안녕하세요 <span sec:authentication="name"></span>님!! </p>
+
+    <br/>
+
+    <p>아이디: <span th:text="${user.loginId}"></span></p>
+    <p>이름: <span th:text="${user.name}"></span></p>
+    <p>이메일: <span th:text="${user.email}"></span></p>
+    <p>가입일: <span th:text="${#temporals.format(user.joinedDate, 'yyyy-MM-dd HH:mm')}"></span></p>
+
+    <br/>
+
+    <p>당신의 롤은 : <span sec:authentication="principal.authorities"></span></p>
+    <p>계정 활성화 여부 : <span sec:authentication="principal.enabled"></span></p>
+</div>
+
+<a th:href="@{/users/{id}(id=${user.id})}"
+   sec:authorize="isAuthenticated()"
+   onclick="return confirm('정말 계정을 삭제하시겠습니까?');">
+    회원 탈퇴
+</a>
+
+</body>
+</html>
