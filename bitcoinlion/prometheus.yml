@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 5s  # 5초마다 메트릭 수집
+
+scrape_configs:
+  - job_name: 'spring-boot-app'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['bit-api:8080']  # 컨테이너 이름:포트
+#      - targets:
+#        - 'api1:8080'
+#        - 'api2:8080'
+#        - 'api3:8080'

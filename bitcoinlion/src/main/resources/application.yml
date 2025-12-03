@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: bitcoinlion
+
+  datasource:
+#    url: jdbc:mysql://localhost:3307/bitdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul # 로컬
+    url: jdbc:mysql://bit-mysql:3306/bitdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul  # 도커
+#    docker run -d --name bit-api --network bit-net -e SERVER_PORT=8080 -p 8081:8080 my-spring-bit:1.0
+    username: bituser
+    password: bit1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - metrics
+          - loggers
+          - threaddump
+          - prometheus
+          - heapdump
+
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+  health:
+    db:
+      enabled: true
+    diskspace:
+      enabled: true
+
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "My Spring Boot Application"
+    version: "1.0.0"
+  team: "Backend Development Team"
